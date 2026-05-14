@@ -1,9 +1,20 @@
+# Fix Laravel Storage Link untuk Hostinger
+Alias /storage /home/u750332571/domains/ruangpraja.site/storage/app/public
+
+<Directory /home/u750332571/domains/ruangpraja.site/storage/app/public>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
 
     RewriteEngine On
+
+    RewriteRule ^storage/(.*)$ /home/u750332571/domains/ruangpraja.site/storage/app/public/$1 [L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
