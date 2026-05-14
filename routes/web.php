@@ -33,7 +33,7 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
 Route::get('/auth/google',          [\App\Http\Controllers\Auth\GoogleController::class, 'redirect'])->name('auth.google');
 Route::get('/auth/google/callback', [\App\Http\Controllers\Auth\GoogleController::class, 'callback'])->name('auth.google.callback');
 
-Route::get(‘/foo’, function () {
+Route::get('/foo', function () {
     \Illuminate\Support\Facades\Artisan::call('storage:link');
 });
 
